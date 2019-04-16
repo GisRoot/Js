@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.box {
+				width: 500px;
+				height: 600px;
+				margin: 0px auto;
+				padding: 0px;
+				border: 1px solid;
+			}
+		</style>
+<script type="text/javascript">
+	var arr = new Array(5);
+	for(var i = 0; i < arr.length; i++) {
+		arr[i] = "img/show" + (i + 1) + "_big.jpg";
+	}
+
+	window.onload = function() {
+		var pic = document.getElementById("pic");
+		var picArr = pic.getElementsByTagName("img");
+		var oimg = document.getElementsByClassName("imgs")[0];
+		//根据小图切换大图
+		for(var i = 0; i < arr.length; i++) {
+			! function(i) {
+				picArr[i].onmouseover = function() {
+					oimg.src = arr[i];
+					this.style.border = "1px solid red";
+
+				}
+				picArr[i].onmouseout = function() {
+					this.style.border = "1px solid #fff";
+				}
+			}(i);
+		}
+	}
+</script>
+	</head>
+
+	<body>
+		<div class="box">
+			<div id="inner">
+				<img src="img/show1_big.jpg" class="imgs" />
+			</div>
+			<div class="inner" id="pic">
+				<img src="img/show1.jpg" />
+				<img src="img/show2.jpg" />
+				<img src="img/show3.jpg" />
+				<img src="img/show4.jpg" />
+				<img src="img/show5.jpg" />
+			</div>
+
+		</div>
+	</body>
+</html>
